@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import firebaseConfig from './firebase'
 import firebase from "firebase/app"
 import "firebase/firestore"
