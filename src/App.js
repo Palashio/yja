@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import firebaseConfig from './firebase'
 import firebase from "firebase/app"
 import "firebase/firestore"
@@ -30,7 +31,7 @@ function App() {
   let [diet, setDiet] = useState("")
   let [needs, setNeeds] = useState("")
   let [address, setAddress] = useState("CITY, STATE, ZIP")
-  let [phone, setPhone] = useState("")
+  let [phone, setPhone] = useState("___ - ___ - ___")
   let [errors, setErrors] = useState("")
 
   const ref = firebase.firestore().collection("submissions")
@@ -40,21 +41,21 @@ function App() {
 
     //Email Validation example
     if(isEmpty(email))
-      setErrors({email: "Must not be Empty"})
+      setErrors({email: "Must Not Be Empty"})
     if (isEmpty(name))
-      setErrors({name: "Must not be Empty"})
+      setErrors({name: "Must Not Be Empty"})
     if (isEmpty(birth))
-      setErrors({birth: "Must not be Empty"})
+      setErrors({birth: "Must Not Be Empty"})
     if (isEmpty(address))
-      setErrors({address: "Must not be Empty"})
+      setErrors({address: "Must Not Be Empty"})
     if (isEmpty(diet))
-      setErrors({diet: "Must not be Empty"})
+      setErrors({diet: "Must Not Be Empty"})
     if (isEmpty(needs))
-      setErrors({needs: "Must not be Empty"})
+      setErrors({needs: "Must Not Be Empty"})
     if (isEmpty(phone))
-      setErrors({phone: "Must not be Empty"})
+      setErrors({phone: "Must Not Be Empty"})
     if(!isEmail(email))
-      setErrors({email:"Email not Valid"})
+      setErrors({email:"Email Not Valid"})
 
     else
       ref.doc(name).set({ "name": name, "email": email, "center": center, "dob": birth, "diet": diet, "needs": needs, "phone": phone, "address": address })
